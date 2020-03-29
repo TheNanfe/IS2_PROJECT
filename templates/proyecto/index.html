@@ -65,7 +65,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Componentes de usuario:</h6>
             <a class="collapse-item" href="#">Crear Usuario</a>
-            <a class="collapse-item" href="#">Modificar Usuario</a>
+            <a class="collapse-item" href="{%url 'lista_usuario' %}">Listar Usuario</a>
           </div>
         </div>
       </li>
@@ -299,8 +299,8 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ user }}</span>
+                <img class="img-profile rounded-circle" src="{% static 'img/no-avatar.jpg'%}">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

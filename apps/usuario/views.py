@@ -5,6 +5,8 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.views.generic import FormView, RedirectView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from apps.usuario.forms import RegistroForm
 from apps.proyecto.urls import index

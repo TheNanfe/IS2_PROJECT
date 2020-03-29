@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="6e9e0f9d-3490-4cc0-8d22-5b8faf6ca16b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/proyecto/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/proyecto/index.html" afterDir="false" />
     </list>
+=======
+    <list default="true" id="59b35d2d-c8c0-48fe-a6d5-fdb4aa9b8154" name="Default Changelist" comment="" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +17,7 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+<<<<<<< Updated upstream
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
@@ -31,6 +36,10 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+=======
+  <component name="ProjectId" id="1YlZ9b4VCuWmxjzsyONs3mpzzhb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+>>>>>>> Stashed changes
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -126,6 +135,18 @@
     <state x="488" y="296" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585245293655">
       <screen x="0" y="23" width="1366" height="699" />
     </state>
+<<<<<<< Updated upstream
     <state x="488" y="296" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1366.699@0.23.1366.699" timestamp="1585245293655" />
+=======
+    <state x="283" y="38" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1366.699@0.23.1366.699" timestamp="1583529274567" />
+    <state x="192" y="23" key="SettingsEditor" timestamp="1585450321877">
+      <screen x="0" y="23" width="1366" height="699" />
+    </state>
+    <state x="192" y="23" key="SettingsEditor/0.23.1366.699@0.23.1366.699" timestamp="1585450321877" />
+    <state x="457" y="92" key="git4idea.branch.GitSmartOperationDialog" timestamp="1585450287968">
+      <screen x="0" y="23" width="1366" height="699" />
+    </state>
+    <state x="457" y="92" key="git4idea.branch.GitSmartOperationDialog/0.23.1366.699@0.23.1366.699" timestamp="1585450287968" />
+>>>>>>> Stashed changes
   </component>
 </project>

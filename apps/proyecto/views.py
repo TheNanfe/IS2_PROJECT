@@ -14,10 +14,3 @@ from django.contrib.auth.models import User
 
 def index(request):
     return render(request, 'proyecto/index.html')
-
-
-class UsuarioList(LoginRequiredMixin, ListView):
-    model = User
-    template_name = 'proyecto/lista_usuarios.html'
-    context_object_name = 'user_list'
-    paginate_by = 10

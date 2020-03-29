@@ -50,3 +50,10 @@ class LoginRequiredMixin(object):
             return HttpResponseRedirect(reverse_lazy('login'))
         else:
             return super(LoginRequiredMixin, self).dispatch(request, *args, **kwargs)
+
+
+class UsuarioList(LoginRequiredMixin, ListView):
+    model = User
+    template_name = 'proyecto/lista_usuarios.html'
+    context_object_name = 'user_list'
+    paginate_by = 10

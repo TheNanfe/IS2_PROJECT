@@ -1,10 +1,10 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django import forms
+
 
 
 class RegistroForm(UserCreationForm):
-
-
     class Meta:
         model = User
         fields = [
@@ -19,4 +19,10 @@ class RegistroForm(UserCreationForm):
             'first_name': 'Nombre',
             'last_name': 'Apellido',
             'email': 'Correo',
+        }
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.TextInput(attrs={'class': 'form-control'}),
         }

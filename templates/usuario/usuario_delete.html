@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <form method='post'>
+    {% csrf_token %}
+    <h3> ¿Desea eliminar el usuario {{ usuario_delete.descripcion_reclamo}}?</h3>
+
+    <button class"btn btn-danger" type="submit">Si, eliminar</button>
+    <a class="btn btn-default" href="{%url 'lista_usuario' %}">Cancelar</a>
+    </form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{%  extends 'base/base.html' %}
+{% block content %}
+        <div class="container-fluid">
+
+              <form method="post">
+                {% csrf_token %}
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" name="nombre" placeholder="Nombre del Rol">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-user" name="descripcion" placeholder="Descripcion del Rol">
+                </div>
+                <button class="btn btn-primary btn-user btn-block submit">
+                    Registrar Rol
+                  </button>
+                <hr>
+              </form>
+        </div>
+{% endblock %}

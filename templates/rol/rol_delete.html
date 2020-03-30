@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+{% block content %}
+        <div class="container-fluid">
+
+    <form method='post'>
+    {% csrf_token %}
+    <h3> ¿Desea eliminar el Rol {{ rol_delete}}?</h3>
+
+    <button class"btn btn-danger" type="submit">Si, eliminar</button>
+    <a class="btn btn-default" href="{%url 'lista_usuario' %}">Cancelar</a>
+    </form>
+        </div>
+{% endblock %}

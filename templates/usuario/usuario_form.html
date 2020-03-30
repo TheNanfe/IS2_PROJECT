@@ -1,5 +1,7 @@
 {%  extends 'base/base.html' %}
 {% block content %}
+        <div class="container-fluid">
+
 
 <form method="post">
 {{ form.media }}
@@ -7,4 +9,5 @@
         {{ form.as_p }}
     <button type="submit">Guardar</button>
 </form>
+</div>
 {% endblock %}

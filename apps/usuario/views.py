@@ -9,7 +9,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.views.generic.edit import UpdateView
 from django.shortcuts import render, redirect
-
 from apps.usuario.forms import RegistroForm
 from apps.proyecto.urls import index
 
@@ -18,7 +17,7 @@ class RegistroForm(CreateView):
     model = User
     template_name = "usuario/registro.html"
     form_class = RegistroForm
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("listar_usuario")
 
 
 class LoginView(FormView):
@@ -65,7 +64,7 @@ class editarUsuario(LoginRequiredMixin, UpdateView):
     model = User
     fields = ['username', 'first_name', 'last_name', 'email']
     template_name = 'usuario/usuario_form.html'
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("listar_usuario")
 
 
 
@@ -85,5 +84,5 @@ class editarUsuario(LoginRequiredMixin, UpdateView):
 class UsuarioDelete(LoginRequiredMixin, DeleteView):
     model = User
     template_name = 'usuario/usuario_delete.html'
-    success_url = reverse_lazy('listar_reclamo')
+    success_url = reverse_lazy('listar_usuario')
     context_object_name = 'usuario_delete'

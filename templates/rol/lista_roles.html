@@ -64,11 +64,27 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Componentes de usuario:</h6>
-            <a class="collapse-item" href="#">Crear Usuario</a>
-            <a class="collapse-item" href="#">Listar Usuario</a>
+            <a class="collapse-item" href="{%url 'registrar_usuario' %}">Crear Usuario</a>
+            <a class="collapse-item" href="{%url 'listar_usuario' %}">Listar Usuario</a>
           </div>
         </div>
       </li>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+<i class="fas fa-user"></i>
+            <span>Roles</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Componentes de Roles:</h6>
+            <a class="collapse-item" href="{%url 'registrar_rol' %}">Crear Rol</a>
+            <a class="collapse-item" href="{%url 'listar_rol' %}">Listar Roles</a>
+          </div>
+        </div>
+      </li>
+      
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
@@ -330,7 +346,7 @@
         <!-- End of Topbar -->
 
       {% block content %}
-            <a href="{% url 'registrar' %}">
+            <a href="{% url 'registrar_rol' %}">
               <button type="button" class="btn btn-success" style="display: flex; margin-left: auto;">
                 <i class="fas fa-plus-circle"></i>
               </button>

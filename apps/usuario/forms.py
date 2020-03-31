@@ -4,7 +4,7 @@ from django import forms
 
 
 
-class RegistroForm(UserCreationForm):
+class RegistroForm(forms.ModelForm):
     class Meta:
         model = User
         fields = [

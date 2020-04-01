@@ -85,5 +85,5 @@ class editarUsuario(LoginRequiredMixin, UpdateView):
 class UsuarioDelete(LoginRequiredMixin, DeleteView):
     model = User
     template_name = 'usuario/usuario_delete.html'
-    success_url = reverse_lazy('listar_reclamo')
+    success_url = reverse_lazy('lista_usuario')
     context_object_name = 'usuario_delete'

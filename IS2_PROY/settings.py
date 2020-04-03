@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.rol',
+    'apps.usuario',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,4 @@ STATICFILES_DIRS = (
 
 
 LOGIN_REDIRECT_URL = reverse_lazy('index')
+AUTH_USER_MODEL = 'usuario.UsuarioSistema'

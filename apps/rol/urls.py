@@ -6,3 +6,4 @@ urlpatterns = [
     path('editar/<int:pk>', EditarRol.as_view(), name="editar_rol"),
     path('eliminar/<int:pk>/',RolDelete.as_view(), name='eliminar_rol'),
 ]
+# Prueba prueba 123

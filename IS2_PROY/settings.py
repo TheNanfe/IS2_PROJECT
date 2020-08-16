@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'IS2_PROY.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'is2',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'NAME': 'IS2_PROY',
+        'USER': 'gimeneca ',
+        'PASSWORD': 'mbarete89',
         'HOST': 'localhost',
         'PORT': '5432',
     }

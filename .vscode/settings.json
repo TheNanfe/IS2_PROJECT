@@ -1,3 +1,9 @@
 {
-    "python.pythonPath": "C:\\Program Files (x86)\\Python38-32\\python.exe"
+    "python.pythonPath": "C:\\Program Files (x86)\\Python38-32\\python.exe",
+    "python.testing.pytestArgs": [
+        "IS2_PROY"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true
 }

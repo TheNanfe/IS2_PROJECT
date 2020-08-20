@@ -1,4 +1,4 @@
-#from django.contrib.auth.forms import AuthenticationForm
+# from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
@@ -17,7 +17,6 @@ class RegistroRol(CreateView):
     template_name = "rol/registro.html"
     form_class = RegistroRol
     success_url = reverse_lazy("listar_rol")
-
 
 
 class RolList(ListView):

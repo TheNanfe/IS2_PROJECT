@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.rol',
+    'apps.proyecto',
+    'bootstrap4',
+    'bootstrap_datepicker_plus',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +134,5 @@ STATICFILES_DIRS = (
 
 
 LOGIN_REDIRECT_URL = reverse_lazy('index')
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

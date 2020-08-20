@@ -1,4 +1,5 @@
 from django.contrib import admin
+from apps.proyecto.models import Proyecto
 
 
 
@@ -6,4 +7,4 @@ from django.contrib import admin
 
 
 
-admin.site.register(Reclamo, ReclamoAdmin)
+admin.site.register(Proyecto)

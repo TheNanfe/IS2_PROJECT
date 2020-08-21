@@ -1,0 +1,175 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n<<<<<<< Updated upstream\n    <list default=\"true\" id=\"6e9e0f9d-3490-4cc0-8d22-5b8faf6ca16b\" name=\"Default Changelist\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/templates/proyecto/index.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/templates/proyecto/index.html\" afterDir=\"false\" />\n    </list>\n=======\n    <list default=\"true\" id=\"59b35d2d-c8c0-48fe-a6d5-fdb4aa9b8154\" name=\"Default Changelist\" comment=\"\" />\n>>>>>>> Stashed changes\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"DjangoConsoleOptions\" custom-start-script=\"import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)\">\n    <option name=\"myCustomStartScript\" value=\"import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)\" />\n  </component>\n<<<<<<< Updated upstream\n  <component name=\"Git.Settings\">\n    <option name=\"PREVIOUS_COMMIT_AUTHORS\">\n      <list>\n        <option value=\"Armando Rodriguez\" />\n      </list>\n    </option>\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"Developing\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n    <option name=\"UPDATE_TYPE\" value=\"MERGE\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1YlZ9b4VCuWmxjzsyONs3mpzzhb\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n=======\n  <component name=\"ProjectId\" id=\"1YlZ9b4VCuWmxjzsyONs3mpzzhb\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n>>>>>>> Stashed changes\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showExcludedFiles\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\n    <property name=\"nodejs_interpreter_path.stuck_in_default_project\" value=\"undefined stuck path\" />\n    <property name=\"nodejs_npm_path_reset_for_default_project\" value=\"true\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable\" />\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"IS2_PROY\" type=\"Python.DjangoServer\" factoryName=\"Django server\">\n      <module name=\"IS2_PROY\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <envs>\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\n      </envs>\n      <option name=\"SDK_HOME\" value=\"$PROJECT_DIR$/env/bin/python\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"\" />\n      <option name=\"IS_MODULE_SDK\" value=\"false\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <option name=\"launchJavascriptDebuger\" value=\"false\" />\n      <option name=\"port\" value=\"8000\" />\n      <option name=\"host\" value=\"\" />\n      <option name=\"additionalOptions\" value=\"\" />\n      <option name=\"browserUrl\" value=\"\" />\n      <option name=\"runTestServer\" value=\"false\" />\n      <option name=\"runNoReload\" value=\"false\" />\n      <option name=\"useCustomRunCommand\" value=\"false\" />\n      <option name=\"customRunCommand\" value=\"\" />\n      <method v=\"2\" />\n    </configuration>\n  </component>\n  <component name=\"ServiceViewManager\">\n    <option name=\"viewStates\">\n      <list>\n        <serviceView>\n          <treeState>\n            <expand />\n            <select />\n          </treeState>\n        </serviceView>\n      </list>\n    </option>\n  </component>\n  <component name=\"SvnConfiguration\">\n    <configuration />\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"6e9e0f9d-3490-4cc0-8d22-5b8faf6ca16b\" name=\"Default Changelist\" comment=\"\" />\n      <created>1583518990030</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1583518990030</updated>\n      <workItem from=\"1583519134975\" duration=\"127000\" />\n      <workItem from=\"1583519867427\" duration=\"61000\" />\n      <workItem from=\"1583523013671\" duration=\"118000\" />\n      <workItem from=\"1583524300615\" duration=\"3315000\" />\n      <workItem from=\"1583529215694\" duration=\"608000\" />\n      <workItem from=\"1585229505630\" duration=\"3323000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"1\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\n    <MESSAGE value=\"Modificacion del logout redirije a la pagina de logout\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Modificacion del logout redirije a la pagina de logout\" />\n  </component>\n  <component name=\"WindowStateProjectService\">\n    <state x=\"283\" y=\"38\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog\" timestamp=\"1585230826916\">\n      <screen x=\"0\" y=\"23\" width=\"1366\" height=\"699\" />\n    </state>\n    <state x=\"283\" y=\"38\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1366.699@0.23.1366.699\" timestamp=\"1585230826916\" />\n    <state x=\"275\" y=\"23\" key=\"CommitChangelistDialog2\" timestamp=\"1585245273877\">\n      <screen x=\"0\" y=\"23\" width=\"1366\" height=\"699\" />\n    </state>\n    <state x=\"275\" y=\"23\" key=\"CommitChangelistDialog2/0.23.1366.699@0.23.1366.699\" timestamp=\"1585245273877\" />\n    <state x=\"192\" y=\"23\" key=\"SettingsEditor\" timestamp=\"1585230179978\">\n      <screen x=\"0\" y=\"23\" width=\"1366\" height=\"699\" />\n    </state>\n    <state x=\"192\" y=\"23\" key=\"SettingsEditor/0.23.1366.699@0.23.1366.699\" timestamp=\"1585230179978\" />\n    <state x=\"488\" y=\"296\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1585245293655\">\n      <screen x=\"0\" y=\"23\" width=\"1366\" height=\"699\" />\n    </state>\n<<<<<<< Updated upstream\n    <state x=\"488\" y=\"296\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1366.699@0.23.1366.699\" timestamp=\"1585245293655\" />\n=======\n    <state x=\"283\" y=\"38\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1366.699@0.23.1366.699\" timestamp=\"1583529274567\" />\n    <state x=\"192\" y=\"23\" key=\"SettingsEditor\" timestamp=\"1585450321877\">\n      <screen x=\"0\" y=\"23\" width=\"1366\" height=\"699\" />\n    </state>\n    <state x=\"192\" y=\"23\" key=\"SettingsEditor/0.23.1366.699@0.23.1366.699\" timestamp=\"1585450321877\" />\n    <state x=\"457\" y=\"92\" key=\"git4idea.branch.GitSmartOperationDialog\" timestamp=\"1585450287968\">\n      <screen x=\"0\" y=\"23\" width=\"1366\" height=\"699\" />\n    </state>\n    <state x=\"457\" y=\"92\" key=\"git4idea.branch.GitSmartOperationDialog/0.23.1366.699@0.23.1366.699\" timestamp=\"1585450287968\" />\n>>>>>>> Stashed changes\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 1eee6e529c18faa3b62430090f533eb49b893eaf)
++++ .idea/workspace.xml	(date 1597451979348)
+@@ -1,152 +1,53 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-<<<<<<< Updated upstream
+-    <list default="true" id="6e9e0f9d-3490-4cc0-8d22-5b8faf6ca16b" name="Default Changelist" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/templates/proyecto/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/proyecto/index.html" afterDir="false" />
+-    </list>
+-=======
+-    <list default="true" id="59b35d2d-c8c0-48fe-a6d5-fdb4aa9b8154" name="Default Changelist" comment="" />
+->>>>>>> Stashed changes
++    <list default="true" id="d55d2a98-e5ed-47a7-92bf-1abc50da9248" name="Default Changelist" comment="Mi primer commit" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+-  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+-    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+-  </component>
+-<<<<<<< Updated upstream
+   <component name="Git.Settings">
+     <option name="PREVIOUS_COMMIT_AUTHORS">
+       <list>
+-        <option value="Armando Rodriguez" />
++        <option value="armandospxp@gmail.com" />
+       </list>
+     </option>
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="Developing" />
++        <entry key="$PROJECT_DIR$" value="master" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-    <option name="UPDATE_TYPE" value="MERGE" />
+-  </component>
+-  <component name="ProjectId" id="1YlZ9b4VCuWmxjzsyONs3mpzzhb" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+-    <ConfirmationsSetting value="2" id="Add" />
+   </component>
+-=======
+-  <component name="ProjectId" id="1YlZ9b4VCuWmxjzsyONs3mpzzhb" />
++  <component name="JupyterTrust" id="87c34afe-0d5f-4562-9969-85cc0ce8507c" />
++  <component name="ProjectId" id="1g73BbV0ZpAunp4COriKJApkN5L" />
+   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+->>>>>>> Stashed changes
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+-    <option name="showExcludedFiles" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+   <component name="PropertiesComponent">
+-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
++    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+   </component>
+-  <component name="RunManager">
+-    <configuration name="IS2_PROY" type="Python.DjangoServer" factoryName="Django server">
+-      <module name="IS2_PROY" />
+-      <option name="INTERPRETER_OPTIONS" value="" />
+-      <option name="PARENT_ENVS" value="true" />
+-      <envs>
+-        <env name="PYTHONUNBUFFERED" value="1" />
+-      </envs>
+-      <option name="SDK_HOME" value="$PROJECT_DIR$/env/bin/python" />
+-      <option name="WORKING_DIRECTORY" value="" />
+-      <option name="IS_MODULE_SDK" value="false" />
+-      <option name="ADD_CONTENT_ROOTS" value="true" />
+-      <option name="ADD_SOURCE_ROOTS" value="true" />
+-      <option name="launchJavascriptDebuger" value="false" />
+-      <option name="port" value="8000" />
+-      <option name="host" value="" />
+-      <option name="additionalOptions" value="" />
+-      <option name="browserUrl" value="" />
+-      <option name="runTestServer" value="false" />
+-      <option name="runNoReload" value="false" />
+-      <option name="useCustomRunCommand" value="false" />
+-      <option name="customRunCommand" value="" />
+-      <method v="2" />
+-    </configuration>
+-  </component>
+-  <component name="ServiceViewManager">
+-    <option name="viewStates">
+-      <list>
+-        <serviceView>
+-          <treeState>
+-            <expand />
+-            <select />
+-          </treeState>
+-        </serviceView>
+-      </list>
+-    </option>
+-  </component>
+-  <component name="SvnConfiguration">
+-    <configuration />
+-  </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+-      <changelist id="6e9e0f9d-3490-4cc0-8d22-5b8faf6ca16b" name="Default Changelist" comment="" />
+-      <created>1583518990030</created>
++      <changelist id="d55d2a98-e5ed-47a7-92bf-1abc50da9248" name="Default Changelist" comment="" />
++      <created>1597451672712</created>
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+-      <updated>1583518990030</updated>
+-      <workItem from="1583519134975" duration="127000" />
+-      <workItem from="1583519867427" duration="61000" />
+-      <workItem from="1583523013671" duration="118000" />
+-      <workItem from="1583524300615" duration="3315000" />
+-      <workItem from="1583529215694" duration="608000" />
+-      <workItem from="1585229505630" duration="3323000" />
++      <updated>1597451672712</updated>
++      <workItem from="1597451675165" duration="304000" />
+     </task>
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+-    <option name="version" value="1" />
+-  </component>
+-  <component name="VcsManagerConfiguration">
+-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+-    <MESSAGE value="Modificacion del logout redirije a la pagina de logout" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Modificacion del logout redirije a la pagina de logout" />
+-  </component>
+-  <component name="WindowStateProjectService">
+-    <state x="283" y="38" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585230826916">
+-      <screen x="0" y="23" width="1366" height="699" />
+-    </state>
+-    <state x="283" y="38" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1366.699@0.23.1366.699" timestamp="1585230826916" />
+-    <state x="275" y="23" key="CommitChangelistDialog2" timestamp="1585245273877">
+-      <screen x="0" y="23" width="1366" height="699" />
+-    </state>
+-    <state x="275" y="23" key="CommitChangelistDialog2/0.23.1366.699@0.23.1366.699" timestamp="1585245273877" />
+-    <state x="192" y="23" key="SettingsEditor" timestamp="1585230179978">
+-      <screen x="0" y="23" width="1366" height="699" />
+-    </state>
+-    <state x="192" y="23" key="SettingsEditor/0.23.1366.699@0.23.1366.699" timestamp="1585230179978" />
+-    <state x="488" y="296" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585245293655">
+-      <screen x="0" y="23" width="1366" height="699" />
+-    </state>
+-<<<<<<< Updated upstream
+-    <state x="488" y="296" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1366.699@0.23.1366.699" timestamp="1585245293655" />
+-=======
+-    <state x="283" y="38" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1366.699@0.23.1366.699" timestamp="1583529274567" />
+-    <state x="192" y="23" key="SettingsEditor" timestamp="1585450321877">
+-      <screen x="0" y="23" width="1366" height="699" />
+-    </state>
+-    <state x="192" y="23" key="SettingsEditor/0.23.1366.699@0.23.1366.699" timestamp="1585450321877" />
+-    <state x="457" y="92" key="git4idea.branch.GitSmartOperationDialog" timestamp="1585450287968">
+-      <screen x="0" y="23" width="1366" height="699" />
+-    </state>
+-    <state x="457" y="92" key="git4idea.branch.GitSmartOperationDialog/0.23.1366.699@0.23.1366.699" timestamp="1585450287968" />
+->>>>>>> Stashed changes
++    <option name="version" value="3" />
+   </component>
+ </project>
+\ No newline at end of file

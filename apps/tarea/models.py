@@ -19,5 +19,5 @@ class Tarea(models.Model):
     estado = models.CharField(max_length=3, choices=estado_tarea )
     descripcion = models.CharField(max_length=50)
     observacion = models.CharField(max_length=50)
-    id_tarea_padre =  models.ForeignKey('Tarea', on_delete=models.CASCADE)
+    id_tarea_padre =  models.ForeignKey('Tarea', on_delete=models.CASCADE, null=True, blank=True)
     

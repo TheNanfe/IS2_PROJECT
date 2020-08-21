@@ -2,14 +2,14 @@ from bootstrap_datepicker_plus import DatePickerInput, TimePickerInput, DateTime
 from django import forms
 from apps.tarea.models import Tarea
 from django.forms.widgets import Select
-choices = list(Tarea.objects.values_list('id', flat=True))
+'''choices = list(Tarea.objects.values_list('id', flat=True))
 def converter(choices):
     lista = []
     for x in range (0, len(choices)):
         this = [str(choices[x]),str(choices[x])]
         lista.append(tuple(this))
     return tuple(lista)
-z = converter(choices)
+z = converter(choices)'''
 
 class TareaForm(forms.ModelForm):
     class Meta:
@@ -37,8 +37,8 @@ class TareaForm(forms.ModelForm):
             'estado': forms.Select(attrs={'class': 'form-control'}),
             'descripcion':forms.TextInput(attrs={'class': 'form-control'}),
             'observacion': forms.TextInput(attrs={'class': 'form-control'}),
-            'id_tarea_padre':Select(choices=(z)),
-            #'id_tarea_padre': forms.Select(attrs={'class': 'form-control'}),
+            #'id_tarea_padre':Select(choices=(z)),
+            'id_tarea_padre': forms.Select(attrs={'class': 'form-control'}),
             #'id_tarea_padre': forms.TextInput(attrs={'class': 'form-control'}),
 
         }

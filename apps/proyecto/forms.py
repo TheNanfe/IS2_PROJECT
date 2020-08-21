@@ -29,8 +29,8 @@ class ProyectoForm(forms.ModelForm):
         widgets = {
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
             'codigo': forms.TextInput(attrs={'class': 'form-control'}),
-            'fecha_inicio': DatePickerInput(format='%d/%m/%Y'),
-            'fecha_fin': DatePickerInput(format='%d/%m/%Y'),
+            'fecha_inicio': DatePickerInput(),
+            'fecha_fin': DatePickerInput(),
             'estado': forms.Select(attrs={'class': 'form-control'}),
             'sprint': forms.TextInput(attrs={'class': 'form-control'}),
             #'tarea': forms.TextInput(attrs={'class': 'form-control'}),

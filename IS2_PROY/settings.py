@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'apps.proyecto',
     'bootstrap4',
     'bootstrap_datepicker_plus',
+    'apps.tarea',
 ]
 
 MIDDLEWARE = [

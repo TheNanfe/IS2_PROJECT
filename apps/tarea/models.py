@@ -1,0 +1,23 @@
+from django.db import models
+from django.contrib.postgres.fields import ArrayField
+from abc import ABCMeta
+
+# Create your models here.
+class Tarea(models.Model):
+    version = models.CharField(max_length=50)
+    prioridad_tarea = (
+        ('Alta', 'Alta'),
+        ('Med', 'Media'),
+        ('Baja', 'Baja'),
+    )
+    prioridad = models.CharField(max_length=10, choices=prioridad_tarea)
+    estado_tarea = (
+        ('PEN', 'PENDIENTE'),
+        ('FIN', 'FINALIZADO'),
+        ('INI', 'INICIADO'),
+    )
+    estado = models.CharField(max_length=3, choices=estado_tarea )
+    descripcion = models.CharField(max_length=50)
+    observacion = models.CharField(max_length=50)
+    #array.append(models.ForeignKey('self', on_delete=models.CASCADE))
+    id_tarea_padre =  models.CharField(max_length=30)

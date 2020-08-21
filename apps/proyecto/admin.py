@@ -6,4 +6,4 @@ from django.contrib import admin
 
 
 
-admin.site.register(Reclamo, ReclamoAdmin)
+

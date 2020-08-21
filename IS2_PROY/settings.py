@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'apps.rol',
     'apps.usuario',
     'apps.tarea',
-    'apps.proyecto',
+    'apps.proyecto',                                                                                                                                                                                                                                                            
+   
 
 ]
 
@@ -82,12 +83,12 @@ WSGI_APPLICATION = 'IS2_PROY.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'IS2_PROY',
-        'USER': 'gimeneca ',
+        'USER': 'postgres',
         'PASSWORD': 'mbarete89',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': 5432,
     }
 }
 

@@ -31,6 +31,8 @@ class ProyectoForm(forms.ModelForm):
             'codigo': forms.TextInput(attrs={'class': 'form-control'}),
             'fecha_inicio': DatePickerInput(format='%Y-%m-%d'),
             'fecha_fin': DatePickerInput(format='%Y-%m-%d'),
+            'fecha_inicio': DatePickerInput(),
+            'fecha_fin': DatePickerInput(),
             'estado': forms.Select(attrs={'class': 'form-control'}),
             'sprint': forms.TextInput(attrs={'class': 'form-control'}),
             #'tarea': forms.TextInput(attrs={'class': 'form-control'}),

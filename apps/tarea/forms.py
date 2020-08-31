@@ -1,7 +1,5 @@
-from bootstrap_datepicker_plus import DatePickerInput, TimePickerInput, DateTimePickerInput
 from django import forms
-from apps.tarea.models import Tarea
-from django.forms.widgets import Select
+from apps.tarea.models import Tarea, LineaBase
 '''choices = list(Tarea.objects.values_list('id', flat=True))
 def converter(choices):
     lista = []
@@ -10,6 +8,7 @@ def converter(choices):
         lista.append(tuple(this))
     return tuple(lista)
 z = converter(choices)'''
+
 
 class TareaForm(forms.ModelForm):
     class Meta:
@@ -32,13 +31,30 @@ class TareaForm(forms.ModelForm):
             'id_tarea_padre': 'ID tarea padre',
             'id_proyecto': 'ID del proyecto al que pertenece',
         }
-        print('hasta aca todo biben')
         widgets = {
             'version': forms.TextInput(attrs={'class': 'form-control'}),
             'prioridad': forms.Select(attrs={'class': 'form-control'}),
             'estado': forms.Select(attrs={'class': 'form-control'}),
-            'descripcion':forms.TextInput(attrs={'class': 'form-control'}),
+            'descripcion': forms.TextInput(attrs={'class': 'form-control'}),
             'observacion': forms.TextInput(attrs={'class': 'form-control'}),
             'id_tarea_padre': forms.Select(attrs={'class': 'form-control'}),
             'id_proyecto': forms.Select(attrs={'class': 'form-control'}),
         }
+
+
+class LineaBaseForm(forms.ModelForm):
+    class Meta:
+        model = LineaBase
+        fields = [
+            'nombre',
+            'id_tarea',
+        ]
+        labels = {
+            'nombre': 'Nombre de linea base',
+            'id_tarea': 'Tareas a asignar linea base',
+        }
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'id_tarea': forms.CheckboxSelectMultiple(),
+        }
+

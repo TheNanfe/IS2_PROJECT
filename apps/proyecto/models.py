@@ -15,3 +15,6 @@ class Proyecto(models.Model):
     estado = models.CharField(max_length=3, choices=estado_proyecto)
     sprint = models.CharField(max_length=50)
     cliente = models.CharField(max_length=50)
+
+    def __str__(self):
+        return '{}'.format(self.nombre)

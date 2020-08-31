@@ -1,6 +1,5 @@
 from django.urls import path, include
 from apps.tarea.views import index, listar_tarea, crear_tarea, eliminar_tarea, editar_tarea
-#from . import views
 
 urlpatterns = [
     path('index/', index, name='index'),

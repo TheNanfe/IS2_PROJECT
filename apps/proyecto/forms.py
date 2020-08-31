@@ -13,7 +13,6 @@ class ProyectoForm(forms.ModelForm):
             'fecha_fin',
             'estado',
             'sprint',
-            'tarea',
             'cliente',
         ]
         labels = {
@@ -23,7 +22,6 @@ class ProyectoForm(forms.ModelForm):
             'fecha_fin': 'Fecha fin estimada del proyecto',
             'estado': 'Estado del proyecto',
             'sprint': 'Duracion de sprints',
-            'tarea': 'Tareas a hacer',
             'cliente': 'Cliente',
         }
         widgets = {
@@ -35,7 +33,5 @@ class ProyectoForm(forms.ModelForm):
             'fecha_fin': DatePickerInput(),
             'estado': forms.Select(attrs={'class': 'form-control'}),
             'sprint': forms.TextInput(attrs={'class': 'form-control'}),
-            #'tarea': forms.TextInput(attrs={'class': 'form-control'}),
             'cliente': forms.TextInput(attrs={'class': 'form-control'}),
-            'tarea':forms.Select(attrs={'class': 'form-control'}),
         }

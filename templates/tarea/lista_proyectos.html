@@ -21,6 +21,7 @@
                 <td>Descripcion</td>
                 <td>Observacion</td>
                 <td>ID del Padre</td>
+                <td>Proyecto</td>
     </tr>
     </thead>
     <tbody>
@@ -33,6 +34,7 @@
           <td>{{ tarea.descripcion }}</td>
           <td>{{ tarea.observacion }}</td>
           <td>{{ tarea.id_tarea_padre }}</td>
+            <td>{{ tarea.id_proyecto }}</td>
             <td style="display: flex;">
 				<a class="btn btn-primary" href="{%url 'editar_tarea' tarea.id %}">
                     <i class="fas fa-pencil-alt"></i>

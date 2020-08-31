@@ -22,7 +22,6 @@
                 <td>Fecha final estimada</td>
                 <td>Estado</td>
                 <td>Duracion de sprint</td>
-                <td>Tarea</td>
                 <td>Cliente</td>
     </tr>
     </thead>
@@ -37,7 +36,6 @@
           <td>{{ proyecto.fecha_fin }}</td>
           <td>{{ proyecto.estado }}</td>
           <td>{{ proyecto.sprint }}</td>
-          <td>{{ proyecto.tarea }}</td>
           <td>{{ proyecto.cliente }}</td>
             <td style="display: flex;">
 				<a class="btn btn-primary" href="{%url 'editar_proyecto' proyecto.id %}">

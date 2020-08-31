@@ -19,6 +19,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def index(request):
     return render(request, 'tarea/index.html')
 
+
 '''def crear_tarea(request):
     if request.method == 'POST':
         form = TareaForm(request.POST)
@@ -29,11 +30,13 @@ def index(request):
         form = TareaForm()
     return render(request, 'tarea/lista_proyectos.html', {'form': form})'''
 
+
 class listar_tarea(LoginRequiredMixin, ListView):
     model = Tarea
     template_name = 'tarea/lista_proyectos.html'
     context_object_name = 'listar_tarea'
     paginate_by = 10
+
 
 class crear_tarea(LoginRequiredMixin, CreateView):
     print('esto siempre se ejecuta \n\n\n\n')
@@ -41,7 +44,6 @@ class crear_tarea(LoginRequiredMixin, CreateView):
     form_class = TareaForm
     template_name = 'tarea/proyecto_form.html'
     success_url = reverse_lazy('listar_tarea')
-
 
 
 class eliminar_tarea(LoginRequiredMixin, DeleteView):

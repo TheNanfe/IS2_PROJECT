@@ -1,5 +1,4 @@
 from django.db import models
-from apps.tarea.models import Tarea
 
 
 # Create your models here.
@@ -15,6 +14,4 @@ class Proyecto(models.Model):
     )
     estado = models.CharField(max_length=3, choices=estado_proyecto)
     sprint = models.CharField(max_length=50)
-    tarea = models.CharField(max_length=50)
     cliente = models.CharField(max_length=50)
-    tarea = models.ForeignKey(Tarea, on_delete=models.CASCADE)

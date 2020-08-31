@@ -1,0 +1,5 @@
+#compiled files
+*.pyc
+venv/**
+env/**
+*.pyc

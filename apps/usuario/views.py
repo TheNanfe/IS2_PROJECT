@@ -1,6 +1,6 @@
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.models import User, AbstractUser
+#from django.contrib.auth.models import User, AbstractUser
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
@@ -11,11 +11,12 @@ from django.views.generic.edit import UpdateView
 from django.shortcuts import render, redirect
 from apps.usuario.forms import RegistroForm
 from apps.proyecto.urls import index
+from apps.usuario.models import User
 
 
 class RegistroForm(CreateView):
     model = User
-    template_name = "usuario/registro.html"
+    template_name = "usuario/usuario_form.html"
     form_class = RegistroForm
     success_url = reverse_lazy("listar_usuario")
 

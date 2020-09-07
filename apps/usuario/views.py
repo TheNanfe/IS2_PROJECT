@@ -1,26 +1,30 @@
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User, AbstractUser
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.views.generic import FormView, RedirectView
-
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic.edit import UpdateView
+from django.shortcuts import render, redirect
 from apps.usuario.forms import RegistroForm
 from apps.proyecto.urls import index
+from apps.usuario.models import User
 
 
 class RegistroForm(CreateView):
     model = User
-    template_name = "registration/registro.html"
+    template_name = "usuario/usuario_form.html"
     form_class = RegistroForm
-    success_url = reverse_lazy("index.html")
+    success_url = reverse_lazy("listar_usuario")
 
 
 class LoginView(FormView):
     form_class = AuthenticationForm
     template_name = "core/login.html"
-    success_url = reverse_lazy("index.html")
+    success_url = reverse_lazy("index")
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -48,3 +52,38 @@ class LoginRequiredMixin(object):
             return HttpResponseRedirect(reverse_lazy('login'))
         else:
             return super(LoginRequiredMixin, self).dispatch(request, *args, **kwargs)
+
+
+class UsuarioList(LoginRequiredMixin, ListView):
+    model = User
+    template_name = 'usuario/lista_usuarios.html'
+    context_object_name = 'user_list'
+    paginate_by = 10
+
+
+class editarUsuario(LoginRequiredMixin, UpdateView):
+    model = User
+    fields = ['username', 'first_name', 'last_name', 'email']
+    template_name = 'usuario/usuario_form.html'
+    success_url = reverse_lazy("listar_usuario")
+
+
+
+"""def editarUsuario(request, pk):
+    usuario = User.objects.get(id=pk)
+    if request.method == 'GET':
+        usuario_form = RegistroForm(instance=usuario)
+    else:
+        usuario_form = RegistroForm(request.POST, instance=usuario)
+        if usuario_form.is_valid():
+            return redirect('lista_usuario')
+        else:
+            usuario_form = RegistroForm()
+    return render(request, 'usuario/usuario_form.html', {'form': usuario_form})"""
+
+
+class UsuarioDelete(LoginRequiredMixin, DeleteView):
+    model = User
+    template_name = 'usuario/usuario_delete.html'
+    success_url = reverse_lazy('listar_usuario')
+    context_object_name = 'usuario_delete'

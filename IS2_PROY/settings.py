@@ -38,6 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.rol',
+    'apps.proyecto',
+    'bootstrap4',
+    'apps.tarea',
+    'apps.usuario',
+    'apps.linea_base',
+    'bootstrap_datepicker_plus',
 ]
 
 MIDDLEWARE = [
@@ -78,7 +85,7 @@ WSGI_APPLICATION = 'IS2_PROY.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'samba',
+        'NAME': 'is2',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'localhost',
@@ -130,3 +137,5 @@ STATICFILES_DIRS = (
 
 
 LOGIN_REDIRECT_URL = reverse_lazy('index')
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

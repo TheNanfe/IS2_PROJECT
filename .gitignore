@@ -1,4 +1,5 @@
 #compiled files
+.pyc
 *.pyc
 venv/**
 env/**

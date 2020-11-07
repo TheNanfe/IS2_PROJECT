@@ -38,13 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.rol',
     'apps.proyecto',
     'bootstrap4',
     'apps.tarea',
     'apps.usuario',
     'apps.linea_base',
     'bootstrap_datepicker_plus',
+    'apps.rol',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +75,8 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTH_USER_MODEL = 'usuario.User'
 
 WSGI_APPLICATION = 'IS2_PROY.wsgi.application'
 

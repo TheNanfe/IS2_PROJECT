@@ -1,5 +1,5 @@
 from django import forms
-from apps.tarea.models import Tarea, LineaBase
+from apps.tarea.models import Tarea
 '''choices = list(Tarea.objects.values_list('id', flat=True))
 def converter(choices):
     lista = []
@@ -40,21 +40,3 @@ class TareaForm(forms.ModelForm):
             'id_tarea_padre': forms.Select(attrs={'class': 'form-control'}),
             'id_proyecto': forms.Select(attrs={'class': 'form-control'}),
         }
-
-
-class LineaBaseForm(forms.ModelForm):
-    class Meta:
-        model = LineaBase
-        fields = [
-            'nombre',
-            'id_tarea',
-        ]
-        labels = {
-            'nombre': 'Nombre de linea base',
-            'id_tarea': 'Tareas a asignar linea base',
-        }
-        widgets = {
-            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
-            'id_tarea': forms.CheckboxSelectMultiple(),
-        }
-

@@ -25,6 +25,7 @@ urlpatterns = [
     path('proyecto/', include('apps.proyecto.urls')),
     path('rol/', include('apps.rol.urls')),
     path('tarea/', include('apps.tarea.urls')),
+    path('linea_base/', include('apps.linea_base.urls')),
     
 
 ]

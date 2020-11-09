@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
-from apps.tarea.models import Tarea, LineaBase
-from apps.tarea.forms import TareaForm, LineaBaseForm
+from apps.tarea.models import Tarea
+from apps.tarea.forms import TareaForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
@@ -51,31 +51,3 @@ class editar_tarea(LoginRequiredMixin, UpdateView):
     template_name = 'tarea/proyecto_form.html'
     success_url = reverse_lazy('listar_tarea')
 
-
-class listar_linea_base(LoginRequiredMixin, ListView):
-    model = LineaBase
-    fields = ['nombre', 'id_tarea']
-    template_name = 'tarea/lista_lineabase.html'
-    success_url = reverse_lazy('listar_lineabase')
-    paginate_by = 10
-
-
-class crear_linea_base(LoginRequiredMixin, CreateView):
-    model = LineaBase
-    form_class = LineaBaseForm
-    template_name = 'tarea/lineabase_form.html'
-    success_url = reverse_lazy('listar_lineabase')
-
-
-class eliminar_linea_base(LoginRequiredMixin, DeleteView):
-    model = LineaBase
-    template_name = 'tarea/lineabase_delete.html'
-    success_url = reverse_lazy('listar_lineabase')
-    context_object_name = 'eliminar_lineabase'
-
-
-class editar_linea_base(LoginRequiredMixin, UpdateView):
-    model = LineaBase
-    fields = ['nombre', 'id_tarea']
-    template_name = 'tarea/lineabase_form.html'
-    success_url = reverse_lazy('listar_lineabase')

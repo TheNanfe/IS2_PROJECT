@@ -11,14 +11,31 @@ from django.views.generic.edit import UpdateView
 from django.shortcuts import render, redirect
 from apps.usuario.forms import RegistroForm
 from apps.proyecto.urls import index
-from apps.usuario.models import User
+from apps.usuario.models import User, UserManager
+from apps.usuario.decorator import *
+from django.contrib.auth.decorators import user_passes_test
+from apps.rol.models import Rol
 
+PERMISO_VISTA_USER = ['administrador', '123'] 
 
 class RegistroForm(CreateView):
     model = User
     template_name = "usuario/usuario_form.html"
     form_class = RegistroForm
     success_url = reverse_lazy("listar_usuario")
+    def dispatch(self, request, *args, **kwargs):
+        def controlador(request):
+            if str(request.user.rol) in PERMISO_VISTA_USER:
+                print('felicidades')
+                return 0
+            else:
+                print(request.user.rol)
+                return 1
+        if controlador(request) == 1:
+            return HttpResponseRedirect(reverse_lazy('index'))
+        
+        return super(RegistroForm, self).dispatch(request,*args,**kwargs)
+  
 
 
 class LoginView(FormView):
@@ -27,6 +44,8 @@ class LoginView(FormView):
     success_url = reverse_lazy("index")
 
     def dispatch(self, request, *args, **kwargs):
+        print(args)
+        print(kwargs)
         if request.user.is_authenticated:
             return HttpResponseRedirect(self.get_success_url())
         else:
@@ -59,6 +78,18 @@ class UsuarioList(LoginRequiredMixin, ListView):
     template_name = 'usuario/lista_usuarios.html'
     context_object_name = 'user_list'
     paginate_by = 10
+    def dispatch(self, request, *args, **kwargs):
+        def controlador(request):
+            if str(request.user.rol) in PERMISO_VISTA_USER:
+                print('felicidades')
+                return 0
+            else:
+                print(request.user.rol)
+                return 1
+        if controlador(request) == 1:
+            return HttpResponseRedirect(reverse_lazy('index'))
+        
+        return super(UsuarioList, self).dispatch(request,*args,**kwargs)
 
 
 class editarUsuario(LoginRequiredMixin, UpdateView):
@@ -66,6 +97,19 @@ class editarUsuario(LoginRequiredMixin, UpdateView):
     fields = ['username', 'first_name', 'last_name', 'email']
     template_name = 'usuario/usuario_form.html'
     success_url = reverse_lazy("listar_usuario")
+    def dispatch(self, request, *args, **kwargs):
+        def controlador(request):
+            if str(request.user.rol) in PERMISO_VISTA_USER:
+                print('felicidades')
+                return 0
+            else:
+                print(request.user.rol)
+                return 1
+        if controlador(request) == 1:
+            return HttpResponseRedirect(reverse_lazy('index'))
+        
+        return super(editarUsuario, self).dispatch(request,*args,**kwargs)
+    
 
 
 
@@ -87,3 +131,18 @@ class UsuarioDelete(LoginRequiredMixin, DeleteView):
     template_name = 'usuario/usuario_delete.html'
     success_url = reverse_lazy('listar_usuario')
     context_object_name = 'usuario_delete'
+    def dispatch(self, request, *args, **kwargs):
+        def controlador(request):
+            if str(request.user.rol) in PERMISO_VISTA_USER:
+                print('felicidades')
+                return 0
+            else:
+                print(request.user.rol)
+                return 1
+        if controlador(request) == 1:
+            return HttpResponseRedirect(reverse_lazy('index'))
+        
+        return super(UsuarioDelete, self).dispatch(request,*args,**kwargs)
+
+
+

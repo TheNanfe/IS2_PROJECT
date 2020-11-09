@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/landa/PycharmProjects/IS2_PROY/venv"
+set -gx VIRTUAL_ENV "/Users/landa/Documents/IS2/IS2_PROJECT/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

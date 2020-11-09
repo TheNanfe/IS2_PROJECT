@@ -4,8 +4,8 @@ from apps.rol.models import Rol
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 import datetime
-
 class UserManager(BaseUserManager):
+    #rol=Rol.objects.get(pk=1)"""
     def create_user(self, username, email, password = None, rol=Rol.objects.get(pk=1)):
         #user = self.model(username = username, first_name = first_name, last_name = last_name,
         # date_joined = date_joined, rol=rol , email=email)]
@@ -24,11 +24,12 @@ class UserManager(BaseUserManager):
         print(email)
         print(email)
         user = self.model(username=username, email = email, rol=rol)
-        user.set_password(password)
+        user.make_password(password, salt=None, hasher='default')
         user.save(using=self._db)
         
         return user
 
+#rol=Rol.objects.get(pk=1)"""
     def create_superuser(self, email, password, username='Prueba', rol=Rol.objects.get(pk=1)):
         user = self.create_user(username = username, email = email, password = password, rol=rol,)
         user.is_superuser = True

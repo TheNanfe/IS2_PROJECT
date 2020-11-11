@@ -11,6 +11,7 @@ class UserManager(BaseUserManager):
     def create_user(self, username, email, password=None, rol=Rol.objects.get(pk=1)):
         if self.objects is None:
             rol = Rol.model(id=1, nombre='administrador', descripcion='administrador del proyecto')
+            rol.save()
 
         user = self.model(username=username, email=email, rol=rol)
         user.set_password(password)

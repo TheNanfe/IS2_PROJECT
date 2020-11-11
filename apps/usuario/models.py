@@ -20,9 +20,15 @@ class UserManager(BaseUserManager):
         return user
 
     # rol=Rol.objects.get(pk=1)"""
-    def create_superuser(self, email, password, username='Prueba', rol=Rol.objects.get(pk=1)):
-        user = self.create_user(username=username, email=email, password=password, rol=rol, )
+    def create_superuser(self, email, password, username='Prueba', rol=None):
+        user = self.create_user(username=username, email=email, password=password, rol=Rol)
+        if Rol.objects is None:
+            rol = Rol.model(id=1, nombre='administrador', descripcion='administrador del proyecto')
+            rol.save()
+        else:
+            rol = Rol.objects.get(pk=1)
         user.is_superuser = True
+        user.save(using=self._db)
         return user
 
     # def get_by_natural_key(self, email_):

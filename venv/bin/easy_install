@@ -1,4 +1,4 @@
-#!/Users/landa/Documents/IS2/IS2_PROJECT/venv/bin/python
+#!/home/amrodriguez/PycharmProjects/IS2_PROJECT/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

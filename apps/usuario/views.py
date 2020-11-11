@@ -1,28 +1,18 @@
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
-#from django.contrib.auth.models import User, AbstractUser
-from django.http import HttpResponseRedirect
-from django.urls import reverse_lazy
-from django.views.generic import CreateView
 from django.views.generic import FormView, RedirectView
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from django.views.generic.edit import UpdateView
-from django.shortcuts import render, redirect
 from apps.usuario.forms import RegistroForm
-from apps.proyecto.urls import index
-from apps.usuario.models import User, UserManager
 from apps.usuario.decorator import *
-from django.contrib.auth.decorators import user_passes_test
-from apps.rol.models import Rol
 
-PERMISO_VISTA_USER = ['administrador', '123'] 
+PERMISO_VISTA_USER = ['administrador', '123']
+
 
 class RegistroForm(CreateView):
     model = User
     template_name = "usuario/usuario_form.html"
     form_class = RegistroForm
     success_url = reverse_lazy("listar_usuario")
+
     def dispatch(self, request, *args, **kwargs):
         def controlador(request):
             if str(request.user.rol) in PERMISO_VISTA_USER:
@@ -31,11 +21,11 @@ class RegistroForm(CreateView):
             else:
                 print(request.user.rol)
                 return 1
+
         if controlador(request) == 1:
             return HttpResponseRedirect(reverse_lazy('index'))
-        
-        return super(RegistroForm, self).dispatch(request,*args,**kwargs)
-  
+
+        return super(RegistroForm, self).dispatch(request, *args, **kwargs)
 
 
 class LoginView(FormView):
@@ -78,6 +68,7 @@ class UsuarioList(LoginRequiredMixin, ListView):
     template_name = 'usuario/lista_usuarios.html'
     context_object_name = 'user_list'
     paginate_by = 10
+
     def dispatch(self, request, *args, **kwargs):
         def controlador(request):
             if str(request.user.rol) in PERMISO_VISTA_USER:
@@ -86,10 +77,11 @@ class UsuarioList(LoginRequiredMixin, ListView):
             else:
                 print(request.user.rol)
                 return 1
+
         if controlador(request) == 1:
             return HttpResponseRedirect(reverse_lazy('index'))
-        
-        return super(UsuarioList, self).dispatch(request,*args,**kwargs)
+
+        return super(UsuarioList, self).dispatch(request, *args, **kwargs)
 
 
 class editarUsuario(LoginRequiredMixin, UpdateView):
@@ -97,6 +89,7 @@ class editarUsuario(LoginRequiredMixin, UpdateView):
     fields = ['username', 'first_name', 'last_name', 'email']
     template_name = 'usuario/usuario_form.html'
     success_url = reverse_lazy("listar_usuario")
+
     def dispatch(self, request, *args, **kwargs):
         def controlador(request):
             if str(request.user.rol) in PERMISO_VISTA_USER:
@@ -105,12 +98,11 @@ class editarUsuario(LoginRequiredMixin, UpdateView):
             else:
                 print(request.user.rol)
                 return 1
+
         if controlador(request) == 1:
             return HttpResponseRedirect(reverse_lazy('index'))
-        
-        return super(editarUsuario, self).dispatch(request,*args,**kwargs)
-    
 
+        return super(editarUsuario, self).dispatch(request, *args, **kwargs)
 
 
 """def editarUsuario(request, pk):
@@ -131,6 +123,7 @@ class UsuarioDelete(LoginRequiredMixin, DeleteView):
     template_name = 'usuario/usuario_delete.html'
     success_url = reverse_lazy('listar_usuario')
     context_object_name = 'usuario_delete'
+
     def dispatch(self, request, *args, **kwargs):
         def controlador(request):
             if str(request.user.rol) in PERMISO_VISTA_USER:
@@ -139,10 +132,8 @@ class UsuarioDelete(LoginRequiredMixin, DeleteView):
             else:
                 print(request.user.rol)
                 return 1
+
         if controlador(request) == 1:
             return HttpResponseRedirect(reverse_lazy('index'))
-        
-        return super(UsuarioDelete, self).dispatch(request,*args,**kwargs)
 
-
-
+        return super(UsuarioDelete, self).dispatch(request, *args, **kwargs)

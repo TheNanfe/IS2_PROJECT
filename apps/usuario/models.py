@@ -8,7 +8,7 @@ import datetime
 
 class UserManager(BaseUserManager):
     # rol=Rol.objects.get(pk=1)"""
-    def create_user(self, username, email, password=None, rol=Rol.objects.get(pk=1)):
+    def create_user(self, username, email, password=None, rol=None):
         if self.objects is None:
             rol = Rol.model(id=1, nombre='administrador', descripcion='administrador del proyecto')
             rol.save()

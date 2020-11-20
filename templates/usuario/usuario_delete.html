@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+{% block content %}
+        <div class="container-fluid">
+
+    <form method='post'>
+    {% csrf_token %}
+    <h3> ¿Desea eliminar el usuario {{ usuario_delete.descripcion_reclamo}}?</h3>
+
+    <button class"btn btn-danger" type="submit">Si, eliminar</button>
+    <a class="btn btn-default" href="{%url 'listar_usuario' %}">Cancelar</a>
+    </form>
+        </div>
+{% endblock %}

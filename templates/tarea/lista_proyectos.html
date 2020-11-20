@@ -1,0 +1,82 @@
+{%  extends 'base/base.html' %}
+{% load static %}
+      {% block content %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+            <a href="{% url 'crear_tarea' %}">
+              <button type="button" class="btn btn-success" style="display: flex; margin-left: auto;">
+                <i class="fas fa-plus-circle"></i>
+              </button>
+            </a>
+                    </a>
+
+        <div class="container-fluid">
+
+          <table class="table-bordered">
+             <thead>
+                <td>ID</td>
+                <td>Version/td>
+                <td>Prioridad</td>
+                <td>Descripcion</td>
+                <td>Observacion</td>
+                <td>ID del Padre</td>
+                <td>Proyecto</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% if listar_tarea %}
+    {% for tarea in listar_tarea %}
+        <tr>
+          <td>{{tarea.id}}</td>
+          <td>{{ tarea.version }}</td>
+          <td>{{ tarea.prioridad }}</td>
+          <td>{{ tarea.descripcion }}</td>
+          <td>{{ tarea.observacion }}</td>
+          <td>{{ tarea.id_tarea_padre }}</td>
+            <td>{{ tarea.id_proyecto }}</td>
+            <td style="display: flex;">
+				<a class="btn btn-primary" href="{%url 'editar_tarea' tarea.id %}">
+                    <i class="fas fa-pencil-alt"></i>
+                </a>
+                <a class="btn btn-danger" href="{%url 'eliminar_tarea' tarea.id %}"><i class="fas fa-trash"></i>
+                </a>
+			</td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros de Proyectos</h1>
+    {% endif %}
+    </tbody>
+</table>
+{% if is_paginated %}
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+              </li>
+            {% endif %}
+            {% for i in paginator.page_range %}
+              <li class="page-item {% if page_obj.number == i %}active{% endif %}">
+                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+              </li>
+            {% endfor %}
+            {% if page_obj.has_next %}
+              <li class="page-item ">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">&raquo;</a>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
+        {% endif %}
+        </div>
+{% endblock %}

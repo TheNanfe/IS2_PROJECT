@@ -30,7 +30,7 @@ class proyecto_list(LoginRequiredMixin, ListView):
         if not request.user.is_superuser:
             def controlador(request):
                 try:
-                    user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol))
+                    user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol.get_id()))
                 except:
                     raise PermissionDenied("No tiene los permisos adecuados")
                 if (PERMISO_LIST in user_rol or PERMISO_EDIT in user_rol or 
@@ -54,7 +54,7 @@ class proyecto_create(LoginRequiredMixin, CreateView):
         if not request.user.is_superuser:
             def controlador(request):
                 try:
-                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol))
+                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol.get_id()))
                 except:
                     raise PermissionDenied("Los passwords no coinciden")
                 if PERMISO_CREATE in user_rol:
@@ -77,7 +77,7 @@ class proyecto_delete(LoginRequiredMixin, DeleteView):
         if not request.user.is_superuser:
             def controlador(request):
                 try:
-                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol))
+                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol.get_id()))
                 except:
                     raise PermissionDenied("Los passwords no coinciden")
                 if PERMISO_CREATE in user_rol:
@@ -100,7 +100,7 @@ class proyecto_edit(LoginRequiredMixin, UpdateView):
         if not request.user.is_superuser:
             def controlador(request):
                 try:
-                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol))
+                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol.get_id()))
                 except:
                     raise PermissionDenied("Los passwords no coinciden")
                 if PERMISO_CREATE in user_rol:

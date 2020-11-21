@@ -31,7 +31,6 @@ class User(AbstractBaseUser,PermissionsMixin):
     REQUIERED_FIELDS = ['username']
     objects  = UserManager()
 
-    @classmethod
     def get_rol(self):
         return (self.rol)
         

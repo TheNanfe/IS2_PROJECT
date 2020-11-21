@@ -6,10 +6,9 @@ class Rol(models.Model):
     descripcion = models.CharField(max_length=100, null=True)
     choices = models.CharField(max_length=300, null=True, blank=True)
     
-    
-    @classmethod
+
     def get_id(self):
         return self.id
     
     def __str__(self):
-       return '{}'.format(self.id)
+       return '{}'.format(self.nombre)

@@ -32,7 +32,7 @@ class RegistroForm(CreateView):
         if not request.user.is_superuser:
             def controlador(request):
                 try:
-                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol))
+                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol.get_id()))
                 except:
                     raise PermissionDenied("Los passwords no coinciden")
                 if PERMISO_CREATE in user_rol:
@@ -117,7 +117,7 @@ class UsuarioList(LoginRequiredMixin, ListView):
         if not request.user.is_superuser:
             def controlador(request):
                 try:
-                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol))
+                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol.get_id()))
                 except:
                     raise PermissionDenied("Los passwords no coinciden")
                 if (PERMISO_LIST in user_rol or PERMISO_EDIT in user_rol or 
@@ -142,7 +142,7 @@ class editarUsuario(LoginRequiredMixin, UpdateView):
         if not request.user.is_superuser:  
             def controlador(request):
                 try:
-                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol))
+                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol.get_id()))
                 except:
                     raise PermissionDenied("Los passwords no coinciden")
                 if PERMISO_EDIT in user_rol or request.user.is_superuser:
@@ -174,7 +174,7 @@ class UsuarioDelete(LoginRequiredMixin, DeleteView):
         if not request.user.is_superuser:
             def controlador(request):
                 try:
-                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol))
+                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol.get_id()))
                 except:
                     raise PermissionDenied("Los passwords no coinciden")
                 if PERMISO_DELETE in user_rol or request.user.is_superuser:

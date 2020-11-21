@@ -4,7 +4,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-            <a href="{% url 'crear_proyecto' %}">
+            <a href="{% url 'crear_tarea' %}">
               <button type="button" class="btn btn-success" style="display: flex; margin-left: auto;">
                 <i class="fas fa-plus-circle"></i>
               </button>
@@ -16,28 +16,38 @@
           <table class="table-bordered">
              <thead>
                 <td>ID</td>
-                <td>Nombre Linea Base</td>
+                <td>Version</td>
+                <td>Prioridad</td>
+                <td>Descripcion</td>
+                <td>Observacion</td>
+                <td>Tarea Padre</td>
+                <td>Linea Base</td>
                 <td>Proyecto</td>
     </tr>
     </thead>
     <tbody>
-    {% if lineabase_list %}
-    {% for lineabase in lineabase_list %}
+    {% if listar_tarea %}
+    {% for tarea in listar_tarea %}
         <tr>
-          <td>{{lineabase.id}}</td>
-          <td>{{ lineabase.nombre }}</td>
-          <td>{{ lineabase.id_proyecto }}</td>
+          <td>{{tarea.id}}</td>
+          <td>{{ tarea.version }}</td>
+          <td>{{ tarea.prioridad }}</td>
+          <td>{{ tarea.descripcion }}</td>
+          <td>{{ tarea.observacion }}</td>
+          <td>{{ tarea.id_tarea_padre }}</td>
+          <td>{{ tarea.id_lineabase }}</td>
+            <td>{{ tarea.id_proyecto }}</td>
             <td style="display: flex;">
-				<a class="btn btn-primary" href="{%url 'editar_lineabase' lineabase.id %}">
+				<a class="btn btn-primary" href="{%url 'editar_tarea' tarea.id %}">
                     <i class="fas fa-pencil-alt"></i>
                 </a>
-                <a class="btn btn-danger" href="{%url 'eliminar_lineabase' lineabase.id %}"><i class="fas fa-trash"></i>
+                <a class="btn btn-danger" href="{%url 'eliminar_tarea' tarea.id %}"><i class="fas fa-trash"></i>
                 </a>
 			</td>
     </tr>
     {% endfor %}
     {% else %}
-    <h1>No hay registros de Lineas Bases</h1>
+    <h1>No hay registros de Proyectos</h1>
     {% endif %}
     </tbody>
 </table>

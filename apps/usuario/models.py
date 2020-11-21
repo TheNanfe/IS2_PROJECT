@@ -7,8 +7,8 @@ import datetime
 
 class UserManager(BaseUserManager):
     def create_user(self, username, email, password=None):
-        user = self.create_user(username = username, email = email, password = password)
-        user.make_password(password, salt=None, hasher='default')
+        user = self.model(username = username, email = email)
+        user.set_password(password)
         user.save(using=self._db)
         return user
 
@@ -17,9 +17,6 @@ class UserManager(BaseUserManager):
         user.is_superuser = True
         user.save(using=self._db)
         return user
-    
-    #def get_by_natural_key(self, email_):
-     #c   return self.get(code_number=email_)
 
 
 class User(AbstractBaseUser,PermissionsMixin):
@@ -28,15 +25,16 @@ class User(AbstractBaseUser,PermissionsMixin):
     last_name = models.CharField(max_length=30, blank=True)
     email = models.EmailField(unique=True)
     date_joined = models.DateField(auto_now_add=True)
-    rol = models.ForeignKey(Rol, on_delete = models.CASCADE, blank=True)
+    rol = models.ForeignKey(Rol, on_delete = models.CASCADE, blank=True, null=True)
     is_staff = models.BooleanField(default=True)
     USERNAME_FIELD = 'email'
-    REQUIERED_FIELDS = ['username', 'rol',]
+    REQUIERED_FIELDS = ['username']
     objects  = UserManager()
 
     @classmethod
     def get_rol(self):
         return (self.rol)
+        
     @classmethod
     def get_username(self):
         return self.username

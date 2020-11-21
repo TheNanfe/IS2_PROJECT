@@ -1,17 +1,11 @@
 from django import forms
 from apps.proyecto.models import Proyecto
 from apps.tarea.models import Tarea
-'''choices = list(Tarea.objects.values_list('id', flat=True))
-def converter(choices):
-    lista = []
-    for x in range (0, len(choices)):
-        this = [str(choices[x]),str(choices[x])]
-        lista.append(tuple(this))
-    return tuple(lista)
-z = converter(choices)'''
+from apps.linea_base.models import LineaBase
 
 
 class TareaForm(forms.ModelForm):
+
     class Meta:
         model = Tarea
         fields = [
@@ -20,8 +14,10 @@ class TareaForm(forms.ModelForm):
             'estado',
             'descripcion',
             'observacion',
-            'id_tarea_padre',
             'id_proyecto',
+            'id_lineabase',
+            'id_tarea_padre',
+            
         ]
         labels = {
             'version': 'Version de la Tarea',
@@ -29,8 +25,10 @@ class TareaForm(forms.ModelForm):
             'estado': 'En que estado se encuetra la tarea',
             'descripcion': 'Descripcion de la tarea',
             'observacion': 'Alguna observacion?',
-            'id_tarea_padre': 'ID tarea padre',
             'id_proyecto': 'ID del proyecto al que pertenece',
+            'id_lineabase': 'ID de la LB a la cual pertenecce',
+            'id_tarea_padre': 'ID tarea padre',
+            
         }
         widgets = {
             'version': forms.TextInput(attrs={'class': 'form-control'}),
@@ -38,24 +36,25 @@ class TareaForm(forms.ModelForm):
             'estado': forms.Select(attrs={'class': 'form-control'}),
             'descripcion': forms.TextInput(attrs={'class': 'form-control'}),
             'observacion': forms.TextInput(attrs={'class': 'form-control'}),
-            'id_tarea_padre': forms.Select(attrs={'class': 'form-control'}),
             'id_proyecto': forms.Select(attrs={'class': 'form-control'}),
+            'id_tarea_padre': forms.Select(attrs={'class': 'form-control'}),
+            'id_lineabase': forms.Select(attrs={'class': 'form-control'}),
         }
+    #Permisos = forms.MultipleChoiceField(choices=choice, widget=forms.CheckboxSelectMultiple)
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('Tarea', None)
         super(TareaForm, self).__init__(*args, **kwargs)
 
     def clean(self):
         cleaned_data = super(TareaForm, self).clean()
-        id_padre = cleaned_data.get('id_tarea_padre')
-        id_proyecto = cleaned_data.get('id_proyecto')
-        #variable = Tarea.objects.values_list('id', flat=True).filter(id_tarea_padre=str(id_padre))
-        #proyectos = Proyecto.objects.values_list('id', flat=True).get(pk=str(id_proyecto))
-        if id_padre != None:
-            proyecto = Tarea.objects.values_list('id_proyecto', flat=True).get(pk=str(id_padre))
-            print(proyecto)
-            print(id_proyecto)
-            if str(id_proyecto) == str(proyecto):
+        id_padre = str(cleaned_data.get('id_tarea_padre'))
+        id_proyecto = str(cleaned_data.get('id_proyecto'))
+        id_lb = str(cleaned_data.get('id_lineabase'))
+        
+        if id_padre != 'None':
+            long = len(id_proyecto)
+            print(id_padre[0:long], id_proyecto, id_lb[0:long])
+            if id_proyecto == id_lb[0:long] and id_proyecto == id_padre[0:long]:
                 print('felicidades!')
             else:
                 raise forms.ValidationError(

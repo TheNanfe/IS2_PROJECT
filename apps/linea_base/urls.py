@@ -7,5 +7,5 @@ urlpatterns = [
     path('eliminar_lineabase/<int:pk>', eliminar_linea_base.as_view(), name= 'eliminar_lineabase'),
     path('crear_lineabase', crear_linea_base.as_view(), name='crear_lineabase'),
     path('tareas_lb/<int:pk>', BringTasks.as_view(), name='tareas_lb'),
-    path('grafica-lineabase', linea_base_chart, name='grafica-lineabase'),
+    path('grafica-lineabase/', linea_base_chart, name='grafica-lineabase'),
 ]

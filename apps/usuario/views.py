@@ -1,10 +1,25 @@
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 from django.views.generic import FormView, RedirectView
-from apps.usuario.forms import RegistroForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic.edit import UpdateView
+from django.shortcuts import render, redirect
+from apps.usuario.forms import RegistroForm, RegistroFormNewUser
+from apps.proyecto.urls import index
+from apps.usuario.models import User, UserManager
 from apps.usuario.decorator import *
+from django.contrib.auth.decorators import user_passes_test
+from apps.rol.models import Rol
+from django.core.exceptions import PermissionDenied
 
-PERMISO_VISTA_USER = ['administrador', '123']
+PERMISO_CREATE = 'user_cre'
+PERMISO_LIST = 'user_list'
+PERMISO_EDIT = 'user_edit'
+PERMISO_DELETE = 'user_del'
 
 
 class RegistroForm(CreateView):
@@ -12,20 +27,49 @@ class RegistroForm(CreateView):
     template_name = "usuario/usuario_form.html"
     form_class = RegistroForm
     success_url = reverse_lazy("listar_usuario")
-
+   
     def dispatch(self, request, *args, **kwargs):
-        def controlador(request):
-            if str(request.user.rol) in PERMISO_VISTA_USER:
-                print('felicidades')
-                return 0
-            else:
-                print(request.user.rol)
-                return 1
+        if not request.user.is_superuser:
+            def controlador(request):
+                try:
+                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol.get_id()))
+                except:
+                    raise PermissionDenied("Los passwords no coinciden")
+                if PERMISO_CREATE in user_rol:
+                    print('felicidades')
+                    return 0
+                else:
+                    print(request.user.rol)
+                    return 1
+            if controlador(request) == 1:
+                return HttpResponseRedirect(reverse_lazy('index'))
+        return super(RegistroForm, self).dispatch(request,*args,**kwargs)
 
-        if controlador(request) == 1:
-            return HttpResponseRedirect(reverse_lazy('index'))
+    def form_valid(self, form):
+        user = form.save(commit=False)
+        password = form.cleaned_data['password']
+        user.set_password(password)
+        user.save()
+        email = form.cleaned_data['email']
+        form.instance.email = email
+        return super(RegistroForm,self).form_valid(form)
 
-        return super(RegistroForm, self).dispatch(request, *args, **kwargs)
+
+class RegistroNuevo(CreateView):
+    model = User
+    template_name = "usuario/usuario_form.html"
+    form_class = RegistroFormNewUser
+    success_url = reverse_lazy("login")
+
+    def form_valid(self, form):
+        user = form.save(commit=False)
+        user.rol = None
+        password = form.cleaned_data['password']
+        user.set_password(password)
+        user.save()
+        email = form.cleaned_data['email']
+        form.instance.email = email
+        return super(RegistroNuevo,self).form_valid(form)
 
 
 class LoginView(FormView):
@@ -70,70 +114,79 @@ class UsuarioList(LoginRequiredMixin, ListView):
     paginate_by = 10
 
     def dispatch(self, request, *args, **kwargs):
-        def controlador(request):
-            if str(request.user.rol) in PERMISO_VISTA_USER:
-                print('felicidades')
-                return 0
-            else:
-                print(request.user.rol)
-                return 1
-
-        if controlador(request) == 1:
-            return HttpResponseRedirect(reverse_lazy('index'))
-
-        return super(UsuarioList, self).dispatch(request, *args, **kwargs)
+        if not request.user.is_superuser:
+            def controlador(request):
+                try:
+                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol.get_id()))
+                except:
+                    raise PermissionDenied("Los passwords no coinciden")
+                if (PERMISO_LIST in user_rol or PERMISO_EDIT in user_rol or 
+                PERMISO_DELETE in user_rol or request.user.is_superuser):
+                    print('felicidades')
+                    return 0
+                else:
+                    print(request.user.rol)
+                    return 1
+            if controlador(request) == 1:
+                return HttpResponseRedirect(reverse_lazy('index'))
+        return super(UsuarioList, self).dispatch(request,*args,**kwargs)
 
 
 class editarUsuario(LoginRequiredMixin, UpdateView):
     model = User
-    fields = ['username', 'first_name', 'last_name', 'email']
+    fields = ['username', 'first_name', 'last_name', 'email', 'password']
+    #template_class = RegistroFormNewUser
     template_name = 'usuario/usuario_form.html'
     success_url = reverse_lazy("listar_usuario")
-
     def dispatch(self, request, *args, **kwargs):
-        def controlador(request):
-            if str(request.user.rol) in PERMISO_VISTA_USER:
-                print('felicidades')
-                return 0
-            else:
-                print(request.user.rol)
-                return 1
+        if not request.user.is_superuser:  
+            def controlador(request):
+                try:
+                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol.get_id()))
+                except:
+                    raise PermissionDenied("Los passwords no coinciden")
+                if PERMISO_EDIT in user_rol or request.user.is_superuser:
+                    print('felicidades')
+                    return 0
+                else:
+                    print(request.user.rol)
+                    return 1
+            if controlador(request) == 1:
+                return HttpResponseRedirect(reverse_lazy('index'))
+        return super(editarUsuario, self).dispatch(request,*args,**kwargs)
+    
+    def form_valid(self, form):
+        user = form.save(commit=False)
+        password = form.cleaned_data['password']
+        user.set_password(password)
+        user.save()
+        email = form.cleaned_data['email']
+        form.instance.email = email
+        return super(editarUsuario,self).form_valid(form)
 
-        if controlador(request) == 1:
-            return HttpResponseRedirect(reverse_lazy('index'))
-
-        return super(editarUsuario, self).dispatch(request, *args, **kwargs)
-
-
-"""def editarUsuario(request, pk):
-    usuario = User.objects.get(id=pk)
-    if request.method == 'GET':
-        usuario_form = RegistroForm(instance=usuario)
-    else:
-        usuario_form = RegistroForm(request.POST, instance=usuario)
-        if usuario_form.is_valid():
-            return redirect('lista_usuario')
-        else:
-            usuario_form = RegistroForm()
-    return render(request, 'usuario/usuario_form.html', {'form': usuario_form})"""
-
-
+    
 class UsuarioDelete(LoginRequiredMixin, DeleteView):
     model = User
     template_name = 'usuario/usuario_delete.html'
     success_url = reverse_lazy('listar_usuario')
     context_object_name = 'usuario_delete'
-
     def dispatch(self, request, *args, **kwargs):
-        def controlador(request):
-            if str(request.user.rol) in PERMISO_VISTA_USER:
-                print('felicidades')
-                return 0
-            else:
-                print(request.user.rol)
-                return 1
+        if not request.user.is_superuser:
+            def controlador(request):
+                try:
+                   user_rol = Rol.objects.values_list('choices', flat=True).get(pk=str(request.user.rol.get_id()))
+                except:
+                    raise PermissionDenied("Los passwords no coinciden")
+                if PERMISO_DELETE in user_rol or request.user.is_superuser:
+                    print('felicidades')
+                    return 0
+                else:
+                    print(request.user.rol)
+                    return 1
+            if controlador(request) == 1:
+                return HttpResponseRedirect(reverse_lazy('index'))
+            
+        return super(UsuarioDelete, self).dispatch(request,*args,**kwargs)
 
-        if controlador(request) == 1:
-            return HttpResponseRedirect(reverse_lazy('index'))
 
-        return super(UsuarioDelete, self).dispatch(request, *args, **kwargs)
+

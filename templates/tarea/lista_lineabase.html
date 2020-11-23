@@ -17,7 +17,7 @@
              <thead>
                 <td>ID</td>
                 <td>Nombre Linea Base</td>
-                <td>Tareas</td>
+                <td>Proyecto</td>
     </tr>
     </thead>
     <tbody>
@@ -26,7 +26,7 @@
         <tr>
           <td>{{lineabase.id}}</td>
           <td>{{ lineabase.nombre }}</td>
-          <td>{{ lineabase.id_tarea }}</td>
+          <td>{{ lineabase.id_proyecto }}</td>
             <td style="display: flex;">
 				<a class="btn btn-primary" href="{%url 'editar_lineabase' lineabase.id %}">
                     <i class="fas fa-pencil-alt"></i>

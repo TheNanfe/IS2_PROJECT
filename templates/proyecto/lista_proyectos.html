@@ -12,7 +12,7 @@
                     </a>
 
         <div class="container-fluid">
-
+          <h2>Proyectos</h2>
           <table class="table-bordered">
              <thead>
                 <td>ID</td>
@@ -23,6 +23,7 @@
                 <td>Estado</td>
                 <td>Duracion de sprint</td>
                 <td>Cliente</td>
+                <td>Tareas</td>
     </tr>
     </thead>
     <tbody>
@@ -37,6 +38,7 @@
           <td>{{ proyecto.estado }}</td>
           <td>{{ proyecto.sprint }}</td>
           <td>{{ proyecto.cliente }}</td>
+          <td><a href="{%url 'listar_tareas' proyecto.id %}">Listar Tareas</a></td>
             <td style="display: flex;">
 				<a class="btn btn-primary" href="{%url 'editar_proyecto' proyecto.id %}">
                     <i class="fas fa-pencil-alt"></i>

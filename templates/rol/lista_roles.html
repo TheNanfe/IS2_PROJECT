@@ -9,12 +9,14 @@
                     </a>
 
         <div class="container-fluid">
+          <h2>Roles</h2>
 
           <table class="table-bordered">
              <thead>
                 <td>ID</td>
                  <td>Nombre del Rol</td>
                   <td>Descripcion del Rol</td>
+                  <td>Usuarios</td>
     </tr>
     </thead>
     <tbody>
@@ -24,6 +26,7 @@
             <td>{{rol.id}}</td>
             <td>{{ rol.nombre }}</td>
             <td>{{ rol.descripcion }}</td>
+            <td><a href="{%url 'listar_usuarios' rol.id %}"> Listar Usuarios</a></td></td>
             <td style="display: flex;">
 				<a class="btn btn-primary" href="{%url 'editar_rol' rol.id %}">
                     <i class="fas fa-pencil-alt"></i>

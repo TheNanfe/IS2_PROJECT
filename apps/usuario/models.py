@@ -26,7 +26,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=30, blank=True)
     email = models.EmailField(unique=True)
     date_joined = models.DateField(auto_now_add=True)
-    rol = models.ForeignKey(Rol, on_delete=models.CASCADE, default=1)
+    rol = models.ForeignKey(Rol, on_delete=models.CASCADE, blank=True, null=True)
     is_staff = models.BooleanField(default=True)
     USERNAME_FIELD = 'email'
     REQUIERED_FIELDS = ['username']

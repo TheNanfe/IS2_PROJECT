@@ -7,13 +7,16 @@ class LineaBaseForm(forms.ModelForm):
         fields = [
             'nombre',
             'id_proyecto',
+            'estado'
         ]
         labels = {
             'nombre': 'Nombre de linea base',
             'id_proyecto': 'proyecto a asignar linea base',
+            'estado': 'Estado de la linea base',
         }
         widgets = {
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
             'id_proyecto': forms.Select(attrs={'class': 'form-control'}),
+            'Estado': forms.Select(attrs={'class': 'form-control'}),
         }
 

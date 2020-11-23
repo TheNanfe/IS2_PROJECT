@@ -10,6 +10,7 @@ from django.core.exceptions import PermissionDenied
 from apps.rol.models import Rol
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from apps.tarea.models import Tarea
 
 PERMISO_CREATE = 'lb_cre'
 PERMISO_LIST = 'lb_list'
@@ -24,7 +25,7 @@ def index(request):
 
 class listar_linea_base(LoginRequiredMixin, ListView):
     model = LineaBase
-    fields = ['nombre', 'id_proyecto']
+    fields = ['nombre', 'id_proyecto', 'estado']
     template_name = 'tarea/lista_lineabase.html'
     success_url = reverse_lazy('listar_lineabase')
     paginate_by = 10
@@ -95,7 +96,7 @@ class eliminar_linea_base(LoginRequiredMixin, DeleteView):
 
 class editar_linea_base(LoginRequiredMixin, UpdateView):
     model = LineaBase
-    fields = ['nombre', 'id_tarea']
+    fields = ['nombre', 'id_proyecto', 'estado']
     template_name = 'tarea/lineabase_form.html'
     success_url = reverse_lazy('listar_lineabase')
     def dispatch(self, request, *args, **kwargs):
@@ -114,3 +115,18 @@ class editar_linea_base(LoginRequiredMixin, UpdateView):
             if controlador(request) == 1:
                 return HttpResponseRedirect(reverse_lazy('index'))
         return super(editar_linea_base, self).dispatch(request,*args,**kwargs)
+
+
+class BringTasks(ListView):
+    template_name = 'tarea/lista_tareas.html'
+    paginate_by = 10
+    model = Tarea
+    context_object_name = 'listar_tarea'
+    queryset = Tarea.objects.all()#Tarea.objects.filter(id_lineabase=1)
+
+
+    def get_queryset(self):
+        valor = str(self.request)
+        indice = valor[41:-2]
+        queryset = Tarea.objects.all().filter(id_lineabase=indice)
+        return queryset

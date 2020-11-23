@@ -49,15 +49,36 @@ class TareaForm(forms.ModelForm):
         cleaned_data = super(TareaForm, self).clean()
         id_padre = str(cleaned_data.get('id_tarea_padre'))
         id_proyecto = str(cleaned_data.get('id_proyecto'))
+        print('\n\n\n\n\n',id_padre,'\n\n\n\n\n')
         id_lb = str(cleaned_data.get('id_lineabase'))
-        
+        valor_padre = id_padre[len(id_proyecto)+3:]
+        padres = Tarea.objects.all().values_list('id_tarea_padre', flat=True)
+        print(valor_padre)
+        if valor_padre != '' and valor_padre in str(padres):
+            raise forms.ValidationError(
+                "La tarea seleccionada ya es padre de otra, seleccione otra"
+            )
+
         if id_padre != 'None':
             long = len(id_proyecto)
-            print(id_padre[0:long], id_proyecto, id_lb[0:long])
             if id_proyecto == id_lb[0:long] and id_proyecto == id_padre[0:long]:
                 print('felicidades!')
+            elif id_lb == '' or id_lb == 'None':
+                raise forms.ValidationError(
+                    "Para tener un padre deber pertenecer a alguna LB"
+                )
             else:
                 raise forms.ValidationError(
                 "Deben ser del mismo Proyecto"
-            )
+                )
+            
+            if id_lb != '' and id_lb != 'None':
+                lb = Tarea.objects.get(pk=str(valor_padre))
+                lb = str(lb.id_lineabase)
+                print(id_lb[long+5:],lb[long+5:])
+                if lb[long+5:] != id_lb[long+5:]:
+                    raise forms.ValidationError(
+                        "Las lineas bases difieren"
+                    )
 
+ 

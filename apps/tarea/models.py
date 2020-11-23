@@ -25,5 +25,12 @@ class Tarea(models.Model):
     def __str__(self):
         return str(self.id_proyecto)+': '+'T'+str(self.id)
 
+    def get_lb_state(self):
+        return LineaBase.objects.get(pk=self.id_lineabase).estado
+
+    def get_lb(self):
+        value = self.id_lineabase
+        return value
+
 
 

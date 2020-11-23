@@ -10,6 +10,7 @@ from django.core.exceptions import PermissionDenied
 from apps.rol.models import Rol
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django import forms
 
 PERMISO_CREATE = 'task_cre'
 PERMISO_LIST = 'task_list'
@@ -81,6 +82,10 @@ class eliminar_tarea(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('listar_tarea')
     context_object_name = 'eliminar_tarea'
     def dispatch(self, request, *args, **kwargs):
+        valor = Tarea.objects.get(pk=kwargs.pop('pk'))
+        if valor.id_lineabase != None:
+            if valor.id_lineabase.estado == 'A':
+                return HttpResponseRedirect(reverse_lazy('listar_tarea'))
         if not request.user.is_superuser:
             def controlador(request):
                 try:
@@ -100,10 +105,14 @@ class eliminar_tarea(LoginRequiredMixin, DeleteView):
 
 class editar_tarea(LoginRequiredMixin, UpdateView):
     model = Tarea
-    fields = ['version', 'prioridad', 'estado', 'descripcion', 'observacion', 'id_tarea_padre', 'id_proyecto']
+    fields = ['version', 'prioridad', 'estado', 'descripcion', 'observacion', 'id_proyecto', 'id_lineabase', 'id_tarea_padre']
     template_name = 'tarea/proyecto_form.html'
     success_url = reverse_lazy('listar_tarea')
     def dispatch(self, request, *args, **kwargs):
+        valor = Tarea.objects.get(pk=kwargs.pop('pk'))
+        if valor.id_lineabase != None:
+            if valor.id_lineabase.estado == 'A':
+                return HttpResponseRedirect(reverse_lazy('listar_tarea'))
         if not request.user.is_superuser:
             def controlador(request):
                 try:

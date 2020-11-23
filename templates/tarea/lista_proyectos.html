@@ -12,17 +12,15 @@
                     </a>
 
         <div class="container-fluid">
-          <h2>Tareas</h2>
 
           <table class="table-bordered">
              <thead>
                 <td>ID</td>
-                <td>Version</td>
+                <td>Version/td>
                 <td>Prioridad</td>
                 <td>Descripcion</td>
                 <td>Observacion</td>
-                <td>Tarea Padre</td>
-                <td>Linea Base</td>
+                <td>ID del Padre</td>
                 <td>Proyecto</td>
     </tr>
     </thead>
@@ -36,7 +34,6 @@
           <td>{{ tarea.descripcion }}</td>
           <td>{{ tarea.observacion }}</td>
           <td>{{ tarea.id_tarea_padre }}</td>
-          <td>{{ tarea.id_lineabase }}</td>
             <td>{{ tarea.id_proyecto }}</td>
             <td style="display: flex;">
 				<a class="btn btn-primary" href="{%url 'editar_tarea' tarea.id %}">
@@ -48,7 +45,7 @@
     </tr>
     {% endfor %}
     {% else %}
-    <h1>No hay registros de Tareas</h1>
+    <h1>No hay registros de Proyectos</h1>
     {% endif %}
     </tbody>
 </table>

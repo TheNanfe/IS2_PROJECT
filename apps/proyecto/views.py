@@ -9,6 +9,7 @@ from django.core.exceptions import PermissionDenied
 from apps.rol.models import Rol
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from apps.tarea.models import Tarea
 
 PERMISO_CREATE = 'proy_cre'
 PERMISO_LIST = 'proy_list'
@@ -23,7 +24,7 @@ def index(request):
 
 class proyecto_list(LoginRequiredMixin, ListView):
     model = Proyecto
-    template_name = 'proyecto/lista_tareas.html'
+    template_name = 'proyecto/lista_proyectos.html'
     context_object_name = 'proyecto_list'
     paginate_by = 10
     def dispatch(self, request, *args, **kwargs):
@@ -112,3 +113,19 @@ class proyecto_edit(LoginRequiredMixin, UpdateView):
             if controlador(request) == 1:
                 return HttpResponseRedirect(reverse_lazy('index'))
         return super(proyecto_edit, self).dispatch(request,*args,**kwargs)
+
+
+class BringTasks(ListView):
+    template_name = 'tarea/lista_tareas.html'
+    paginate_by = 10
+    model = Tarea
+    context_object_name = 'listar_tarea'
+    queryset = Tarea.objects.all()#Tarea.objects.filter(id_lineabase=1)
+
+
+    def get_queryset(self):
+        valor = str(self.request)
+        indice = valor[43:-2]
+        print('\n\n\n\n',indice)
+        queryset = Tarea.objects.all().filter(id_proyecto=indice)
+        return queryset

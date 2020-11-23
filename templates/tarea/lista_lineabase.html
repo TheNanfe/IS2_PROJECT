@@ -12,21 +12,27 @@
                     </a>
 
         <div class="container-fluid">
-
+          <h2>Lineas Bases</h2>
           <table class="table-bordered">
              <thead>
                 <td>ID</td>
                 <td>Nombre Linea Base</td>
+                <td>Estado</td>
                 <td>Proyecto</td>
+                <td>Tareas</td>
+
     </tr>
     </thead>
     <tbody>
     {% if lineabase_list %}
     {% for lineabase in lineabase_list %}
         <tr>
-          <td>{{lineabase.id}}</td>
+          <td>{{ lineabase.id }}</td>
           <td>{{ lineabase.nombre }}</td>
+          <td>{{ lineabase.estado }} </td>
           <td>{{ lineabase.id_proyecto }}</td>
+          <td><a href="{%url 'tareas_lb' lineabase.id %}">Listar Tareas
+        </a></td>
             <td style="display: flex;">
 				<a class="btn btn-primary" href="{%url 'editar_lineabase' lineabase.id %}">
                     <i class="fas fa-pencil-alt"></i>

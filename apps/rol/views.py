@@ -5,6 +5,7 @@ from apps.rol.forms import RegistroRol
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.core.exceptions import PermissionDenied
+from apps.usuario.models import User
 
 PERMISO_CREATE = 'rol_cre'
 PERMISO_LIST = 'rol_list'
@@ -112,3 +113,17 @@ class RolDelete(DeleteView):
             if controlador(request) == 1:
                 return HttpResponseRedirect(reverse_lazy('index'))
         return super(RolDelete, self).dispatch(request,*args,**kwargs)
+
+class BringUsuarios(ListView):
+    template_name = 'usuario/lista_usuarios.html'
+    paginate_by = 10
+    model = User
+    context_object_name = 'user_list'
+    queryset = User.objects.all()#Tarea.objects.filter(id_lineabase=1)
+
+
+    def get_queryset(self):
+        valor = str(self.request)
+        indice = valor[40:-2]
+        queryset = User.objects.all().filter(rol=indice)
+        return queryset

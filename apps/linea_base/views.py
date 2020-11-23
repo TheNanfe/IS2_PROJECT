@@ -1,3 +1,4 @@
+from django.db.models import Count
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
@@ -130,3 +131,19 @@ class BringTasks(ListView):
         indice = valor[41:-2]
         queryset = Tarea.objects.all().filter(id_lineabase=indice)
         return queryset
+
+
+def linea_base_chart(request):
+    labels = []
+    data = []
+
+    queryset = LineaBase.objects.order_by('-nombre')[:5]
+    q2 = Tarea.objects.values('descripcion').annotate(ucount=Count('id'))
+    for lb in queryset:
+        labels.append(lb.name)
+        data.append(q2)
+
+    return render(request, 'tarea/grafica_lineabase.html', {
+        'labels': labels,
+        'data': data,
+    })
